@@ -1,14 +1,10 @@
 # Authentication course from TheOdinProject
 https://www.theodinproject.com/lessons/nodejs-members-only
 
-# Make app that authenticates user and lets them create messages.
-
-# If user is member of the clubhouse, ie is registered and has the correct password to join the 
-# private club, he'll be able to see the messages' authors and timestamps.
-
-# Finally, if user is admin, he'll be able to delete messages.
-
-# Structure of project, a full-stack app !
+- Make app that authenticates user and lets them create messages.
+- If user is member of the clubhouse, ie is registered and has the correct password to join the private club, he'll be able to see the messages' authors and timestamps.
+- Finally, if user is admin, he'll be able to delete messages.
+- Structure of project, a full-stack app !
 
 # Back-end build on express to handle routes and send correct response
 
