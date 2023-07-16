@@ -13,6 +13,7 @@ App :
 - passport and passport-local for authentication and keep session
 - bcryptjs to get hashed passwords
 - use of mongoose and models
+
 Database : 
 - MongoDb
 
