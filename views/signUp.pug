@@ -1,0 +1,20 @@
+form(action='/sign_up' method='POST') 
+    label(for='firstName') First Name
+    input#firstName(name='firstName' value=user? user.firstName : null)
+
+    label(for='lastName') Last Name
+    input#lastName(name='lastName' value=user? user.lastName : null)
+
+    label(for='username') Email
+    input#email(name='username' value=user? user.username : null)
+
+    label(for='password') Password
+    input#password(name='password' value=user? user.password : null)
+
+    button(type='submit') Sign Up
+
+    - if (errors) {
+        div
+            each error in errors
+                p #{error.msg}
+        - }

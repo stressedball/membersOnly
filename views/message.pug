@@ -1,0 +1,14 @@
+form(action='/message', method='POST')
+    label(for='title') Title
+    input#title(name='title' value= messages ? messages.title : null) 
+
+    label(for='content') Message
+    input#content(type='text', name='content' value= messages ? messages.content : null)
+
+    button(type='submit') Send Message
+
+    - if (errors) {
+        div
+            each error in errors
+                p #{error.msg}
+    - }

@@ -1,0 +1,14 @@
+h3 Confirm Delete
+form
+    div.deleteContainer
+        p.message.title #{messages.title}
+        p.message.content #{messages.content}
+
+        p.message.identity #{messages.author.username}
+        p.message.date #{messages.timeStamp.toDateString()}
+
+    .buttonContainer
+        a(href=`/delete/${messages._id}/confirm`)
+            button.confirm(type='button') Confirm
+        a(href='/')
+            button.cancel(type='button' href='/') Cancel

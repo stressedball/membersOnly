@@ -1,0 +1,16 @@
+form(action='/sign_in' method='POST') 
+    input#username(name='username' placeholder='Email', value=user ? user.username : '')
+
+    input#password(name='password' placeholder='Password', value=user ? user.password : '')
+
+    button(type='submit') Log In
+
+    div.error
+        - if (errors) {
+            each error in errors
+                - if (error && error.msg) {
+                    p #{error.msg}
+                - } else {
+                    p #{error}
+                - }   
+        - }

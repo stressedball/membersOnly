@@ -1,0 +1,41 @@
+h1(style='text-align: center') Members Only Clubhouse
+
+- if (user && !user.isMember) {
+    p(style='text-align: center') Become an exclusive member to reveal authors' name
+- }
+section#messages
+    - if (messages.length) {
+        each message in messages 
+            article#message-container
+                header
+                    - if (user && user.isMember) {
+                        div(style='display: flex; align-items: center; justify-content: left; flex-wrap: wrap')
+                            p.message.identity #[strong #{message.author.firstName} #{message.author.lastName}] 
+                            p.date - #{message.timeStamp.toDateString()}
+                        p.email #{message.author.username}
+                - }
+                div
+                    p.message.title #{message.title}
+                    p.message.content #{message.content}
+                - if (user && user.isAdmin) {
+                    a(href=`/delete/${message._id}` style='align-self: end;')
+                        svg.delete(
+                            data-value=message._id,
+                            fill='currentColor',
+                            width='25px',
+                            height='25px',
+                            version='1.1',
+                            viewBox='0 0 468.873 468.873',
+                        )
+                            path(
+                                data-value=message._id,
+                                d='M369.992,10.059c-48.285,0-88.48,34.613-97.145,80.381H13.25C5.932,90.439,0,96.375,0,103.691v242.48c0,7.32,5.932,13.252,13.25,13.252h202.674v86.138c0,5.359,3.226,10.192,8.18,12.244c1.639,0.678,3.361,1.009,5.067,1.009c3.447,0,6.839-1.348,9.374-3.883l96.172-95.508h56.975c7.32,0,13.252-5.932,13.252-13.252V201.458c37.361-14.121,63.93-50.215,63.93-92.52C468.873,54.33,424.604,10.059,369.992,10.059z M369.992,182.821c-40.736,0-73.879-33.143-73.879-73.882c0-40.738,33.143-73.881,73.879-73.881c40.738,0,73.881,33.143,73.881,73.881C443.873,149.679,410.73,182.821,369.992,182.821z'
+                            )
+                            path(
+                                data-value=message._id,
+                                d='M412.096,98.803h-84.277c-5.801,0-10.502,4.702-10.502,10.502c0,5.8,4.701,10.502,10.502,10.502h84.277c5.801,0,10.504-4.702,10.504-10.502C422.6,103.504,417.896,98.803,412.096,98.803z'
+                            )
+                    - }
+    - } else {
+        p No messages yet.
+    - }
